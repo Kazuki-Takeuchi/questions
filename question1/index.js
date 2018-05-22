@@ -5,7 +5,7 @@ window.onload = function () {
     return
   }
   const number = Number(text)
-  var range = Array.from(Array(number).keys()).map(function (val) {
+  const range = Array.from(Array(number).keys()).map(function (val) {
     return val + 1
   })
   range.forEach(function (val) {

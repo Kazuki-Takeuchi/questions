@@ -1,6 +1,6 @@
 window.onload = function () {
   const text = window.prompt('入力してください。')
-  let hash = {}
+  const hash = {}
   text.split(' ').forEach(function (str) {
     if (str in hash) {
       hash[str] += 1
