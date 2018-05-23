@@ -8,7 +8,7 @@ window.onload = function () {
     console.log('「ぽい！」')
     if (!handForms[youShowHand]) {
       console.log('不正な手です')
-      continue // 不正な手–>戻る
+      break // 不正な手–>抜ける
     }
     const myShowHand = Math.floor(Math.random() * 3)
     console.log('＊コンピュータ：' + handForms[myShowHand])
