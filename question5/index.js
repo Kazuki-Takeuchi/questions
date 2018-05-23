@@ -33,21 +33,22 @@ function bubbleSort (inputs, isAsc) {
         return
       }
       let isReplace = false
+      const next = results[index - 1]
       if (isAsc) {
         // 小さい順
-        if (input < results[index - 1]) {
+        if (input < next) {
           isReplace = true
         }
       } else {
         // 大きい順
-        if (input > results[index - 1]) {
+        if (input > next) {
           isReplace = true
         }
       }
       if (isReplace) {
-        results[index] = results[index - 1]
+        results[index] = next
         results[index - 1] = input
-        isContinue = true // どれか入れ替える継続
+        isContinue = true // どれか入れ替えた場合継続
       }
     })
     inputs = results.concat()
@@ -62,10 +63,7 @@ function quickSort (inputs, isAsc) {
   const base = inputs[0]
   let left = []
   let right = []
-  inputs.forEach(function (input, index) {
-    if (index === 0) {
-      return
-    }
+  inputs.slice(1).forEach(function (input, index) {
     if (input <= base) {
       left.push(input)
     } else {
