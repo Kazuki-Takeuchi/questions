@@ -35,10 +35,8 @@ function checkInput (answer, input) {
   input.split('').forEach(function (inputChar, index) {
     if (inputChar === answerArray[index]) {
       hitCount++
-    } else {
-      if (answerArray.some(answerChar => answerChar === inputChar)) {
-        browCount++
-      }
+    } else if (answerArray.some(answerChar => answerChar === inputChar)) {
+      browCount++
     }
   })
   return '外れ： ' + hitCount + 'Hits, ' + browCount + 'Blow'
