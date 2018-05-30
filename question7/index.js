@@ -1,11 +1,11 @@
 window.onload = function () {
   const answer = createAnswer()
-  let input = ''
   let count = 0
-  while (answer !== input) {
-    input = window.prompt('4桁の数字は？')
+  while (true) {
+    const input = window.prompt('4桁の数字は？')
     if (input === '') {
       // 途中で辞めれるように
+      console.log('キャンセル')
       break
     }
 
@@ -14,13 +14,9 @@ window.onload = function () {
     if (result) {
       console.log(result)
     } else {
+      console.log(count + '回で正解！')
       break // 正解の場合
     }
-  }
-  if (input) {
-    console.log(count + '回で正解！')
-  } else {
-    console.log('キャンセル')
   }
 }
 function checkInput (answer, input) {
@@ -30,16 +26,16 @@ function checkInput (answer, input) {
     return result
   }
   let hitCount = 0
-  let browCount = 0
+  let blowCount = 0
   const answerArray = answer.split('')
   input.split('').forEach(function (inputChar, index) {
     if (inputChar === answerArray[index]) {
       hitCount++
     } else if (answerArray.some(answerChar => answerChar === inputChar)) {
-      browCount++
+      blowCount++
     }
   })
-  return '外れ： ' + hitCount + 'Hits, ' + browCount + 'Blow'
+  return `外れ： ${hitCount}Hits, ${blowCount}Blow`
 }
 function createAnswer () {
   const seed = [...Array(10).keys()]

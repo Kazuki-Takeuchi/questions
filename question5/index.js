@@ -57,7 +57,7 @@ function bubbleSort (inputs, isAsc) {
 }
 
 function quickSort (inputs, isAsc) {
-  if (inputs.length < 1) {
+  if (inputs.length <= 1) {
     return inputs
   }
   const base = inputs[0]

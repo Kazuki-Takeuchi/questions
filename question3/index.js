@@ -1,7 +1,6 @@
 window.onload = function () {
   const handForms = ['グー', 'チョキ', 'パー']
-  let isAiko = true
-  while (isAiko) {
+  while (true) {
     console.log('「じゃんけん・・・」')
     const text = window.prompt('0.グー 1.チョキ 2.パー')
     const youShowHand = Number(text)
@@ -18,21 +17,15 @@ window.onload = function () {
       console.log('「アイコでしょ！」')
       continue
     }
-    let youWin = false
-    switch (youShowHand) {
-      case 0:
+    switch (myShowHand - youShowHand) {
       case 1:
-        youWin = myShowHand === youShowHand + 1
-        break
+      case -2:
+        console.log('「あなたの勝ち！」')
+        return
+      case -1:
       case 2:
-        youWin = myShowHand === 0
-        break
+        console.log('「あなたの負け！」')
+        return
     }
-    if (youWin) {
-      console.log('「あなたの勝ち！」')
-    } else {
-      console.log('「あなたの負け！」')
-    }
-    isAiko = false
   }
 }

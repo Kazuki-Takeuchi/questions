@@ -5,20 +5,20 @@ window.onload = function () {
     return
   }
   const number = Number(text)
-  const range = Array.from(Array(number).keys()).map(function (val) {
-    return val + 1
-  })
+  const range = Array.from(Array(number - 1), (_, i) => i + 1)
+  let outputArray = []
   range.forEach(function (val) {
-    let outputStr = ''
+    let convertStr = ''
     if (val % 3 === 0) {
-      outputStr = 'Fizz'
+      convertStr = 'Fizz'
     }
     if (val % 5 === 0) {
-      outputStr += 'Buzz'
+      convertStr += 'Buzz'
     }
-    if (outputStr === '') {
-      outputStr = val
+    if (!convertStr) {
+      convertStr = val
     }
-    console.log(outputStr)
+    outputArray.push(convertStr)
   })
+  console.log(outputArray.join(', '))
 }

@@ -9,14 +9,9 @@ window.onload = function () {
     }
   })
   let hasItem = false
-  let logStr = '{'
+  let logArray = []
   Object.keys(hash).forEach(function (key) {
-    logStr += key + ':' + hash[key] + ', '
-    hasItem = true
+    logArray.push(`${key}:${hash[key]}`)
   })
-  if (hasItem) {
-    logStr = logStr.slice(0, -2)
-  }
-  logStr += '}'
-  console.log(logStr)
+  console.log(`{${logArray.join(', ')}}`)
 }
