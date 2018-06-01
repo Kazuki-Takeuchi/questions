@@ -28,30 +28,27 @@ function bubbleSort (inputs, isAsc) {
   let isContinue = true
   while (isContinue) {
     isContinue = false
-    inputs.forEach(function (input, index) {
-      if (index === 0) {
-        return
-      }
+    for (let index = 1; index < results.length; index++) {
       let isReplace = false
-      const next = results[index - 1]
+      const current = results[index]
+      const prev = results[index - 1]
       if (isAsc) {
         // 小さい順
-        if (input < next) {
+        if (current < prev) {
           isReplace = true
         }
       } else {
         // 大きい順
-        if (input > next) {
+        if (current > prev) {
           isReplace = true
         }
       }
       if (isReplace) {
-        results[index] = next
-        results[index - 1] = input
+        results[index] = prev
+        results[index - 1] = current
         isContinue = true // どれか入れ替えた場合継続
       }
-    })
-    inputs = results.concat()
+    }
   }
   return results
 }
