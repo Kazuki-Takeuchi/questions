@@ -1,6 +1,5 @@
 window.onload = function () {
   const answer = createAnswer()
-  console.log(answer)
   let count = 0
   while (true) {
     const input = window.prompt('4桁の数字は？')
@@ -11,7 +10,7 @@ window.onload = function () {
     }
 
     count++
-    let result = checkInput(answer, input)
+    const result = checkInput(answer, input)
     if (result[0] === 4) {
       console.log(count + '回で正解！')
       break // 正解の場合
@@ -21,11 +20,6 @@ window.onload = function () {
   }
 }
 function checkInput (answer, input) {
-  const result = ''
-  if (answer === input) {
-    // 正解の場合は空を返す
-    return [4, 1]
-  }
   let hitCount = 0
   let blowCount = 0
   const answerArray = answer.split('')
