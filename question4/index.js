@@ -5,11 +5,10 @@ window.onload = function () {
     return
   }
   const total = function (number) {
-    let sum = number
     if (number > 0) {
-      sum += total(number - 1)
+      number += total(number - 1)
     }
-    return sum
+    return number
   }
   const number = Number(text)
   console.log(total(number))
