@@ -8,8 +8,7 @@ window.onload = function () {
       hash[str] = 1
     }
   })
-  let hasItem = false
-  result = Object.keys(hash).map(key => {
+  const result = Object.keys(hash).map(key => {
     return `${key}:${hash[key]}`
   })
   console.log(`{${result.join(', ')}}`)

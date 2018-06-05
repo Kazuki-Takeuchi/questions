@@ -6,7 +6,7 @@ window.onload = function () {
   }
   const number = Number(text)
   const range = Array.from(Array(number - 1), (_, i) => i + 1)
-  let outputArray = []
+  const outputArray = []
   range.forEach(function (val) {
     let convertStr = ''
     if (val % 3 === 0) {
