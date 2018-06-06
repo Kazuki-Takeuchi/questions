@@ -1,10 +1,10 @@
 window.onload = function () {
   const text = window.prompt('入力してください。')
   const hash = {}
-  text.split(' ').forEach(str => {
+  text.split(/\s+/).forEach(str => {
     if (str in hash) {
       hash[str] += 1
-    } else if (str) {
+    } else {
       hash[str] = 1
     }
   })
